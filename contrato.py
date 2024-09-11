@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Tuple
 
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, PositiveFloat, PositiveInt
 from enum import Enum
 
 class ProdutoEnum(str, Enum):
@@ -12,6 +12,6 @@ class ProdutoEnum(str, Enum):
 class Vendas(BaseModel):
     email: EmailStr
     data: datetime
-    valor: float
-    quantidade: int
+    valor: PositiveFloat
+    quantidade: PositiveInt
     produto: ProdutoEnum
