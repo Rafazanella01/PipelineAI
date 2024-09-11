@@ -5,16 +5,16 @@ import streamlit as st
 from dotenv import load_dotenv
 import os
 
-# Carregar variáveis do arquivo .env
+#Carregar variáveis do arquivo .env
 load_dotenv()
 
-# Configuração do banco de dados PostgreSQL
+#Configuração do banco de dados PostgreSQL
 DB_HOST = os.getenv("DB_HOST")
 DB_NAME = os.getenv("DB_NAME")
 DB_USER = os.getenv("DB_USER")
 DB_PASS = os.getenv("DB_PASS")
 
-# Função para salvar os dados validados no PostgreSQL
+#Função para salvar os dados validados no PostgreSQL
 def salvar_no_postgres(dados: Vendas):
     try:
         conn = psycopg2.connect(
@@ -25,7 +25,7 @@ def salvar_no_postgres(dados: Vendas):
         )
         cursor = conn.cursor()
         
-        # Inserção dos dados na tabela de vendas
+        #Inserção dos dados na tabela de vendas
         insert_query = sql.SQL(
             "INSERT INTO vendas (email, data, valor, quantidade, produto) VALUES (%s, %s, %s, %s, %s)"
         )
